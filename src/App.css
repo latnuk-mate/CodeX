@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root{
+    --primary-bg : #000A1F;
+    --secondary-bg: #001F3F;
+    --primary-btnColor: #DDAA00;
+    --secondary-btnColor: #00BFFF;
+}
+
+.primary-bg{
+    background-color: var(--primary-bg);
+}
+
+.secondary-bg{
+    background-color: var(--secondary-bg);
+}
+
+.brightColor-bg{
+    background-color: var(--secondary-btnColor);
+}
+
+.highlightedText{
+    color: var(--primary-btnColor);
+}
+
+body{
+    background-image: linear-gradient(to right, var(--secondary-bg), var(--secondary-bg));
+    color: #ffff;
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar{
+    width: 2px;
+}
+
+.course--content::-webkit-scrollbar{
+    height: 6px;
+}
+
+body::-webkit-scrollbar-track, .course--content::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px var(--primary-bg);
+    border-radius: 100px;
+}
+ 
+body::-webkit-scrollbar-thumb, .course--content::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-btnColor);
+  outline: 1px solid var(--secondary-btnColor);
+  border-radius: 100px;
+}
+
+::selection{
+    background-color: var(--secondary-btnColor);
+    color: var(--primary-bg);
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    text-decoration: none;
+}
+
+
+
+input:-webkit-autofill{
+    color: var(--primary-bg) !important; 
+    box-shadow: 0 0 0px 1000px #c1c5ce inset !important; 
+}
+
+input:-moz-autofill{
+    color: var(--primary-bg) !important; 
+    box-shadow: 0 0 0px 1000px #c1c5ce inset !important; 
+}
+
+
+.navbar ul li a:hover,
+.dropdown ul li a:hover{
+    color: var(--primary-btnColor);
+    border-bottom: 2px solid var(--secondary-btnColor);
+}
+
+
+.primary-btn{
+    background-color: var(--primary-btnColor);
+    color: var(--primary-bg);
+    border-radius: 100px;
+    font-weight: 500;
+}
+
+.secondary-btn{
+    background-color: #ffffff;
+    color: var(--primary-bg);
+    border-radius: 100px;
+    font-weight: 500;
+}
+
+.element-btnPrimary{
+    background-color: var(--secondary-btnColor);
+    color: var(--secondary-bg);
+    border-radius: 100px;
+    font-weight: 500;
+}
+
+.element-btnSecondary{
+    border: 1px solid var(--secondary-btnColor);
+    background: transparent;
+    color: #ffffff;
+    border-radius: 100px;
+    font-weight: 500;
+}
+
+
+.custom-shadow{
+    box-shadow: 0px 0px 4px var(--secondary-btnColor);
+}
+
+.dropdown{
+    background-color: var(--secondary-bg);
+    z-index: 99999;
+}
+
+.aboutSection{
+    background-color: var(--secondary-bg);
+    background-image: url('/aboutbg.jpg');
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+}
+
+.pattern{
+    background-color: var(--secondary-bg);
+    background-image: url('/pattern2.jpg');
+    background-blend-mode: soft-light;
+    background-size: cover;
+    background-position: center;
+    padding-top: 7rem;
+    padding-bottom: 5rem;
+}
+
+
+.testimony-carousel{
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.testimony-carousel .owl-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    position: absolute;
+    top: -6rem;
+    right: 5px;
+}
+.testimony-carousel .owl-nav .owl-prev{
+   background-color: transparent !important;
+   color: var(--secondary-btnColor) !important;
+}
+.testimony-carousel .owl-nav .owl-next{
+    background-color: var(--secondary-btnColor) !important;
+    color: #ffffff!important;
+ }
+
+.testimony-carousel .owl-nav .owl-prev, .testimony-carousel .owl-nav .owl-next {
+    border: 1px solid var(--secondary-btnColor)!important;
+    height: 40px;
+    width: 40px;
+    border-radius: 50% !important;
+}
+
+.explore .item{
+    animation: fadeBorder 1.3s infinite ease-in-out;
+    -webkit-animation:fadeBorder 1.3s infinite ease-in-out;
+    -moz-animation: fadeBorder 1.3s infinite ease-in-out;
+    -o-animation: fadeBorder 1.3s infinite ease-in-out;
+    transition: border-color 1.2s ease-in-out;
+    will-change: border-color;
+}
+
+@keyframes fadeBorder {
+    0%{
+        border-top: 1px solid var(--secondary-btnColor);
+        border-right: 1px solid var(--primary-btnColor);
+        border-bottom: 1px solid transparent;
+        border-left: 1px solid transparent;
+    }
+    100%{
+        border-left: 1px solid var(--secondary-btnColor);
+        border-bottom: 1px solid var(--primary-btnColor);
+        border-top: 1px solid transparent;
+        border-right: 1px solid transparent;
+    }
+}
+
+.testimony{
+    -webkit-animation: ShadowGlow 2s ease-in-out infinite;
+    -moz-animation: ShadowGlow 2s ease-in-out infinite;
+    -o-animation: ShadowGlow 2s ease-in-out infinite;
+    animation: ShadowGlow 2s ease-in-out infinite;
+    transition: all 1s ease-in-out;
+}
+
+@keyframes ShadowGlow {
+    0% {
+      box-shadow: 0 0 5px var(--secondary-btnColor);
+    }
+    50% {
+      box-shadow: 0 0 10px var(--secondary-btnColor);
+    }
+    100% {
+      box-shadow: 0 0 5px var(--secondary-btnColor);
+    }
+  }
+
+.contact-section{
+    background-color: var(--secondary-bg);
+    background-image: url('/contact.jpg');
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center right;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+ input, textarea{
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: var(--secondary-bg);
+}
+
+
+input:focus, textarea:focus{
+    appearance: none;
+    border: none;
+    outline: none;
+}
+
+.footer li a:hover{
+    color: var(--primary-btnColor);
+}
+
+.authentication{
+    background-image: url('/regbg.jpg');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: cover;
+    background-color: var(--primary-bg);
+    background-blend-mode: soft-light;
+}
+
+
+.dashboard .nav .active{
+    background-color:#001F3F;
+    border-radius: 100px;
+}
+
+  
+
+@media screen and (min-width : 1040px) {
+    .aboutContainer{
+        perspective: 200px;
+    }
+
+    .firstAbout{
+        -webkit-transform: rotateY(-2deg);
+        transform: rotateY(-2deg);
+        transition: transform .4s ease-in-out;
+    }
+    
+    .firstAbout:hover{
+        transform: rotateY(0deg);
+        box-shadow: 0px 0px 4px var(--secondary-btnColor);
+    }   
+}
