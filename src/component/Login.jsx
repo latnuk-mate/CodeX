@@ -11,7 +11,7 @@ export default function Login(){
 const {user , setUser} = useContext(ContextUser);
 
 if(user){
-    return <Navigate to={"/dashboard"} />
+    return <Navigate to={"/dashboard/profile"} />
 }
 
 

@@ -28,8 +28,8 @@ function App() {
 
   return (
     <Routes>
-      <Route path='/' element={<LandingPage/>} />
-      <Route path='/dashboard' element={<PrivateRoute element={<Dashboard />}/>} />
+      <Route path='/' element={<LandingPage showAndHide={showAndHide} pointer={pointer}/>} />
+      <Route path='/dashboard/:query' element={<PrivateRoute element={<Dashboard showAndHide={showAndHide} pointer={pointer} />}/>} />
       <Route path='/user/register' element={<Register />} />
       <Route path='/user/login' element={<Login />} />
     </Routes>

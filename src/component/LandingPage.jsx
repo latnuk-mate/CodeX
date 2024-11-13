@@ -7,7 +7,7 @@ import Testimony from '../partials/Testimony';
 import Contact from '../partials/Contact';
 import Footer from '../partials/Footer';
 
-function LandingPage() {
+function LandingPage({showAndHide, pointer}) {
 
   return (
     <>
@@ -15,7 +15,7 @@ function LandingPage() {
         <div className="img--box opacity-10 absolute h-full w-full">
             <img src="/heroimg.jpg" alt="" className='object-cover h-full w-full'/>
         </div>
-        <Navbar/>
+        <Navbar showAndHide={showAndHide} pointer={pointer}/>
         <div className="z-0 lg:z-50 relative mt-32 flex justify-center flex-col items-center ps-5 md:ps-0">
         <h1
             className='text-4xl md:text-5xl lg:text-6xl font-semibold uppercase leading-3 lg:leading-6 mb-5'>

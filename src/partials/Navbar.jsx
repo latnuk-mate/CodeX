@@ -1,22 +1,8 @@
 
-import React, { useRef } from 'react'
+import React from 'react'
 import DropDown from './DropDown';
 
-function Navbar() {
-
-  const pointer = useRef("");
-
-  function showAndHide(pointer){
-    if(pointer){
-      pointer.style.display == "flex"
-      ? 
-      pointer.style.display = "none"
-      :
-      pointer.style.display = "flex"
-    }
-   
-  }
-
+function Navbar({showAndHide, pointer}) {
 
   return (
   <>

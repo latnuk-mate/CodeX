@@ -257,6 +257,18 @@ input:focus, textarea:focus{
     border-radius: 100px;
 }
 
+.dashboard .nav-filter .active{
+    border: 1px solid var(--secondary-btnColor);
+    border-radius: 100px;
+}
+
+.dashboard .course--content .course--item.hide{
+    display: none;
+}
+.dashboard .course--content .course--item.show{
+    display: block;
+}
+
   
 
 @media screen and (min-width : 1040px) {

@@ -67,11 +67,10 @@ router.post('/login', async(req,res)=>{
     }
 });
 
-
-// router.get('/verify/token', (req,res)=>{
-    
-// })
-
+router.get('/logout', (req,res)=>{
+    res.cookie('token', "");
+    res.json("succesfully logged out.")
+})
 
 const routeForUser = router;
 
