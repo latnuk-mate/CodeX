@@ -39,7 +39,7 @@ function handleForm(e){
         <div className="max-w-[1200px] m-auto p-2">
             <div className="max-w-full md:w-2/3 lg:w-2/4 primary-bg p-10 m-auto mt-20 rounded-md">
                 <h5 className="capitalize text-2xl mb-5 text-center tracking-wider">login to continue!</h5>
-                <form method="post" name="login--form" onSubmit={handleForm}>
+                <form method="post" name="login--form" onSubmit={handleForm} className="custominput">
                     <div className="grid grid-cols-1 mb-4">
                         <input type="email" name="email" id="email" className="px-4 py-2" placeholder="Your Email" value={email} onChange={(e)=> setEmail(e.target.value)} required/>
                     </div>

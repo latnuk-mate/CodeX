@@ -232,7 +232,7 @@ input:-moz-autofill{
 }
 
 
-input:focus, textarea:focus{
+.custominput input:focus, .custominput textarea:focus{
     appearance: none;
     border: none;
     outline: none;

@@ -69,7 +69,7 @@ function handleForm(e){
             <div className="w-full md:w-2/4 primary-bg p-10 m-auto md:m-0 lg:mx-10 rounded-lg z-50">
                 <h5 className="capitalize text-2xl mb-2 text-center tracking-wider">sign up and join us</h5>
                 <div className="text-red-500 text-center mb-8 capitalize text-sm">{message}</div>
-                <form action="/register" method="post" name="register--form" onSubmit={handleForm}>
+                <form action="/register" method="post" name="register--form" onSubmit={handleForm} className="custominput">
                     <div className="grid grid-cols-1 mb-4">
                         <input type="text" name="name" id="name" className="px-4 py-2" placeholder="Your Name" value={name} onChange={(e)=> setName(e.target.value)} required/>
                     </div>

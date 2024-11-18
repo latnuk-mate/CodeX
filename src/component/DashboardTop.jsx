@@ -37,10 +37,14 @@ export default function Topbar({showAndHide, pointer, logOut, element, clickToSe
           <div
           onClick={() => showAndHide(pointer.current)}
           className="relative cursor-pointer p-2 rounded-md hidden lg:flex items-center gap-2 border border-gray-200">
-              <div className="flex items-center justify-center w-8 h-8 rounded-full secondary-bg">
-                {user ? user.name[0] : ""}
-              </div>
-            <h5 className='capitalize'>{user ? user.name : ""}</h5>
+            {user && (
+                <>
+                <div className="flex items-center justify-center w-8 h-8 rounded-full secondary-bg">
+                    {user.name[0]}
+                 </div>
+                <h5 className='capitalize'>{user.name}</h5>
+                </>
+            )}
             <ChevronDownIcon className='w-5 h-5' />
 
             <div

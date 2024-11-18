@@ -1,0 +1,87 @@
+{
+    "data":{
+        "personal" : ["JHON DOE" , "WEB DEVELOPER", "+91 1234567890", "yourmail@gmail.com", "Kolkata,India"],
+        "social":[
+            {
+                "icon" : "github",
+                "link" : "github.com//codex"
+            },
+            {
+                "icon" : "linkedIn",
+                "link" : "linkedin.com/in/codex" 
+            },
+            {
+                "icon" : "website",
+                "link" : "codex.com"    
+            }
+        ],
+        "education":[
+            {
+                "role": "Bachelor of Computer Science",
+                "school" : "IIT Delhi",
+                "admitDate": "2020/08/21",
+                "completeDate": "2020/09/15"
+            },
+            {
+                "role": "Master of Computer Science",
+                "school" : "IIT Mumbai",
+                "admitDate": "04/14/2025",
+                "completeDate": "08/20/2020"
+                
+            }
+        ],
+
+        "work":[
+            {
+                "company": "ABC company",
+                "role" : "Developer",
+                "cpDetails": "Torph TTC is a global software company that offers user interface UI development.",
+                "experience": "Created and maintained 10 web applications for numerous national and foreign clients.Established and lead a team of 10 people; covering every key role in the early stages.",
+                "joinDate": "08/20/2023",
+                "leaveDate": "01/02/2024"
+            },
+            {
+                "company": "XYZ company",
+                "role" : "Full Stack Developer",
+                "cpDetails": "Torph TTC is a global software company that offers user interface UI development.",
+                "experience": "Created and maintained 10 web applications for numerous national and foreign clients.Established and lead a team of 10 people; covering every key role in the early stages.",
+                "joinDate": "08/20/2023",
+                "leaveDate": "01/02/2024"
+            }
+        ],
+
+        "projects": [
+            {
+                "title" : "Project1",
+                "link" : "github.com/codeX/project1",
+                "summary" : "This project is about...",
+                "experience" : "This is a project where I did this and that and it was a great success. ",
+                "startDate" : "01/02/2023",
+                "endDate" : "02/01/2024"
+            },
+            {
+                "title" : "Project2",
+                "link" : "github.com/codeX/project2",
+                "summary" : "This project is about...",
+                "experience" : "This is a project where I did this and that and it was a great success. ",
+                "startDate" : "01/02/2023",
+                "endDate" : "02/01/2024"
+            }
+        ],
+
+        "Technical":[
+            "Javascript", "Python", "C", "Web Services", "cloud", "HTML5", "CSS3", "SQL", "UI/Ux"
+        ],
+
+        "softSkill":["Collaboration" , "Problem-solving" , "Communication", "Time management"],
+        
+        "additionalSkills" : ["Public Speaking", "Writing", "Research"],
+        "languages" : ["English", "Hindi"],
+        "certificate" : ["Certified Web Professional-Web Developer", "Java Development Certified Professional"],
+        "summary": 
+        "Resourceful Developer with 11 years of experience in designing and developing user interfaces,testing and training employees.Skilled at utilizing a wide variety of tools and programs to provide effective applications."
+
+        
+    }
+
+}

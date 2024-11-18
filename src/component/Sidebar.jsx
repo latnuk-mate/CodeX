@@ -5,7 +5,7 @@ import { useContext, useRef} from 'react';
 import { ContextUser } from '../UserContext';
 
 
-function Sidebar({changeBg, logOut, pointer, clickToSee}) {
+function Sidebar({changeBg, logOut, pointer, clickToSee, query}) {
   const element = useRef();
 const {user} = useContext(ContextUser);
 
@@ -15,6 +15,7 @@ const {user} = useContext(ContextUser);
       {/* sidebar */}
       <div
       ref={pointer}
+      style={{position: query === 'resume' ? 'fixed' : ''}}
       className='h-full max-w-[300px] primary-bg p-5 fixed lg:relative lg:block hidden'
       >
         {/* hide btn */}

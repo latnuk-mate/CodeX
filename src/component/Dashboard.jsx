@@ -8,6 +8,8 @@ import { useContext, useRef } from 'react';
 import { ContextUser } from '../UserContext';
 import DashboardCert from './DashboardCert';
 import Topbar from './DashboardTop';
+import Hackathon from './DashboardHack';
+import Resume from './DashboardResume';
 
 function Dashboard({showAndHide, pointer}) {
   const {setUser} = useContext(ContextUser);
@@ -83,7 +85,7 @@ function Dashboard({showAndHide, pointer}) {
   return (
     <div className='dashboard lg:grid grid-cols-4'>
         {/* sidebar */}
-        <Sidebar changeBg={setBackground} logOut={logOut} pointer={element} clickToSee={showSideBar}/>
+        <Sidebar query={query} changeBg={setBackground} logOut={logOut} pointer={element} clickToSee={showSideBar}/>
 
       {/* main content */}
        <main className='col-span-3'>
@@ -99,6 +101,13 @@ function Dashboard({showAndHide, pointer}) {
             }
             {
               (query === "cert") && <DashboardCert/>
+            }
+            {
+              (query === "hackathon") && <Hackathon/>
+            }
+
+            {
+              (query === "resume") && <Resume />
             }
        </main>
 
