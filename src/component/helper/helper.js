@@ -2,11 +2,6 @@ function addItem(arr, setArr, obj){
     setArr((prevInput) => {
         return [...prevInput, obj]
     }); 
-
-    if(arr.length >= 5){
-        alert('Can not add more than three rows!')
-        arr.pop(); // remove the last elements
-    }
 }
 
 function removeItem(arr, setArr){
@@ -17,33 +12,12 @@ function removeItem(arr, setArr){
 
 
 const helper = {
-    addSocialMedia : (arr, setArr, obj)=>{
+    handleAddItem : (arr, setArr, obj=null)=>{
         addItem(arr, setArr, obj)
     },
 
-    removeSocialMedia : (arr, setArr)=>{
+    handleRemoveItem : (arr, setArr)=>{
         removeItem(arr, setArr);
-    },
-
-    addEducation: (arr, setArr, obj)=>{
-        addItem(arr, setArr, obj)
-    },
-
-    removeEducation : (arr, setArr)=>{
-        removeItem(arr, setArr)
-    },
-
-    addWorkDetails: (arr, setArr, obj)=>{
-        addItem(arr, setArr, obj)
-    },
-
-    removeWork : (arr, setArr)=>{
-        removeItem(arr, setArr)
-    },
-
-    genKey: ()=>{
-        const key = Math.floor(Math.random() * 10000);
-        return key;
     },
 
     handleItem: (array, setArray, index, value)=>{

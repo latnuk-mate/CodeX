@@ -19,7 +19,7 @@ app.use(cors({
     credentials : true
 }));
 
-// for datea parser;
+// for data parser;
 app.use(express.json());
 app.use(cookieParser())
 

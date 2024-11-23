@@ -1,6 +1,6 @@
 import { MinusCircleIcon, PlusCircleIcon } from "@heroicons/react/16/solid";
 
-export default function AddOrRemove({addBoxes, removeBoxes, array, setArray, obj}){
+export default function AddOrRemove({addBoxes, removeBoxes, array, setArray, obj=null}){
     return(
         <div className="mt-4 flex items-center gap-4">
         <button

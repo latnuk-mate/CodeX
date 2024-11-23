@@ -17,6 +17,7 @@ export default function(
     return (
 
         <>
+        <h5 className="text-lg mb-2">Education</h5>
     {/* dynamic content */}
             {
             education && education.map((el, index) => (

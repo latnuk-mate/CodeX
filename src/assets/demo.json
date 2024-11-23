@@ -1,0 +1,34 @@
+{
+    "demoData":{
+            "socialSites" :{
+                "text" : "social media...", 
+                "link": "link"
+              },
+
+              "edDetails" :{
+                "school": "school", 
+                "role": "degree",
+                "admitDate": "",
+                "completeDate": ""
+              },
+
+              "workdetail" :{
+                "company": "company",
+                "role" : "Job Title",
+                "cpDetails": "Description",
+                "experience": "Key achievements..",
+                "joinDate": "",
+                "leaveDate": ""
+              },
+              "projects":{
+                "title" : "Project Name",
+                "link" : "Project Link",
+                "summary" : "Description",
+                "experience" : "Key achievements..",
+                "startDate" : "",
+                "endDate" : ""
+              }
+
+
+    }
+}

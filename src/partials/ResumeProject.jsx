@@ -1,49 +1,48 @@
-export default function ResumeWork(
+export default function ResumeProject(
     {
-        works,
-        company,
-        setCompany,
+        projects,
+        title,
+        setTitle,
+        link,
+        setLink,
         summary,
         setSummary,
         experience,
         setExperience,
-        joinDate,
-        setJoinDate,
-        leaveDate,
-        setLeaveDate,
-        role,
-        setRole,
-        handleWork
-
+        startDate,
+        setStartDate,
+        endDate,
+        setEndDate,
+        handleProject
     }
 ){
     return(
-        <div className="mt-5">
-            <h5 className="text-lg mb-2">Work Experience</h5>
+        <div className="mt-4">
+            <h5 className="text-lg mb-2">Projects</h5>
             {
-                works && works.map((work, index) => (
+            projects && projects.map((project, index) => (
                     <div key={index}>           
                     <div key={index} className="working--item mb-3">
                             <input 
                             type="text" 
                             className="mb-3 w-full px-3 border border-cyan-300 focus:outline-none"
-                            placeholder={work.company}
-                            value={company[index]}
-                            onChange={(e) => handleWork(company, setCompany, index, e.target.value)}
+                            placeholder={project.title}
+                            value={title[index]}
+                            onChange={(e) => handleWork(title, setTitle, index, e.target.value)}
                             />
                          <input 
                             type="text" 
                             className="w-full px-3 border border-cyan-300 focus:outline-none"
-                            placeholder={work.role}
-                            value={role[index]}
-                            onChange={(e) => handleWork(role, setRole, index, e.target.value)}
+                            placeholder={project.link}
+                            value={link[index]}
+                            onChange={(e) => handleWork(link, setLink, index, e.target.value)}
                          />
                     </div>
                     <div className="mb-2">
                         <textarea
                         rows={5}
                         className="mb-1 w-full px-3 border border-cyan-300 focus:outline-none"
-                        placeholder={work.cpDetails}
+                        placeholder={project.summary}
                         value={summary[index]}
                         onChange={(e) => handleWork(summary, setSummary, index, e.target.value)}
                         >
@@ -51,7 +50,7 @@ export default function ResumeWork(
                         <textarea
                         rows={5}
                         className="w-full px-3 border border-cyan-300 focus:outline-none"
-                        placeholder={work.experience}
+                        placeholder={project.experience}
                         value={experience[index]}
                         onChange={(e) => handleWork(experience, setExperience, index, e.target.value)}
                         >
@@ -60,17 +59,16 @@ export default function ResumeWork(
 
                     <div className="flex items-center gap-3 mb-4">
                         <input type="date"
-                        defaultValue={joinDate[index] ? new Date(joinDate[index]).toISOString().substr(0, 10) : ""}
-                        onChange={(e) => handleWork(joinDate, setJoinDate , index , e.target.value)}
+                        defaultValue={startDate[index] ? new Date(startDate[index]).toISOString().substr(0, 10) : ""}
+                        onChange={(e) => handleProject(startDate, setStartDate , index , e.target.value)}
                         className="w-full p-1 border border-cyan-300 focus:outline-none"/>
                         <input type="date"
-                                defaultValue={leaveDate[index] ? new Date(leaveDate[index]).toISOString().substr(0, 10) : ""}
-                                onChange={(e) => handleWork(leaveDate, setLeaveDate , index, e.target.value)}
+                                defaultValue={endDate[index] ? new Date(endDate[index]).toISOString().substr(0, 10) : ""}
+                                onChange={(e) => handleProject(endDate, setEndDate , index, e.target.value)}
                             className="w-full p-1 border border-cyan-300 focus:outline-none"
                         />
                     </div>
                     </div>
-         
                 ))
             }
         </div>

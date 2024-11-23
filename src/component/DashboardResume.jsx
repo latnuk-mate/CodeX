@@ -3,11 +3,17 @@ import {useState } from "react";
 import AddOrRemove from "../partials/Action";
 import helper from "./helper/helper";
 import details from '../assets/data.json';
+import data from '../assets/demo.json'
 import ResumeEducation from "../partials/ResumeEducation";
 import Personal from "../partials/ResumePersonal";
 import Social from "../partials/ResumeSocial";
 import ResumeWork from "../partials/ResumeWork";
 import ResumeContent from "./ResumeContent";
+import ResumeProject from "../partials/ResumeProject";
+import ResumeTech from "../partials/ResumeTechskill";
+import ResumeSoft from "../partials/ResumeSoftSkill";
+import ResumeAdditional from "../partials/ResumeAdditional"
+import ResumeLanguage from "../partials/ResumeLang"
 
 export default function Resume(){
     // multiple social inputs to create...
@@ -16,9 +22,15 @@ export default function Resume(){
     const [SocialMedia, setSocialMedia] = useState(details.data.social || []);
     const [Education, setEducation] = useState(details.data.education || []);
     const [Workdetail, setWorkDetail] = useState(details.data.work || []);
-
-// for personal details area...
-const [personal, setPersonal] = useState(PersonalDetails.map(item => item || ""))
+    const [Project, setProject] = useState(details.data.projects || []);
+    const [TechnicalDetails, setTechnicalDetails] = useState(details.data.Technical || [])
+    const [softSkillsDetails, setSoftSkillDetails] = useState(details.data.softSkill || []);
+    const [AdditionalSkills , setAdditionalSkills] = useState(details.data.additionalSkills || [])
+    const [LanguageData , setLanguageData] = useState(details.data.languages || [])
+    const CertificateData = details.data.certificate;
+    
+    // for personal details area...
+    const [personal, setPersonal] = useState(PersonalDetails.map(item => item || ""))
 
 
     // demo inputs for social media part...
@@ -37,25 +49,37 @@ const [personal, setPersonal] = useState(PersonalDetails.map(item => item || "")
 
 
     // WORK PART...
+    const [company, setCompany] = useState(Workdetail.map(work => work.company || ""));
+    const [workRole, setWorkRole] = useState(Workdetail.map(work => work.role || ""));
+    const [workSummary, setWorkSummary] = useState(Workdetail.map(work => work.cpDetails || ""));
+    const [workExp, setWorkExp] = useState(Workdetail.map(work => work.experience || ""));
+    const [workJoin, setWorkJoin] = useState(Workdetail.map(work => work.joinDate || ""));
+    const [workLeave, setWorkLeave] = useState(Workdetail.map(work => work.leaveDate || ""));
 
 
-    // demo inputs for work part..
-    const [work, setWork] = useState('');
-    const [workExp, setWorkExp] = useState('');
+    // for project part..
+    const [projectTitle, setProjectTitle] = useState(Project.map(item => item.title || ""));
+    const [projectLink, setProjectLink] = useState(Project.map(item => item.link || ""));
+    const [projectSummary, setProjectSummary] = useState(Project.map(item => item.summary || ""));
+    const [projectExperience, setProjectExperience] = useState(Project.map(item => item.experience || ""));
+    const [projectStart, setProjectStart] = useState(Project.map(item => item.startDate || ""));
+    const [projectEnd, setProjectEnd] = useState(Project.map(item => item.endDate || ""));
 
-    // demo details about the fields..
-    const socialSites = {
-            index: helper.genKey(), 
-            text : "social media...", 
-            link: "link"
-        };
-        const edDetails = {
-            index: helper.genKey(), 
-            school: 'school', 
-            role: "degree",
-            admitDate: "",
-            completeDate: ""
-        };
+
+    // tech skills..
+    const [techSkill, setTechSkill] = useState(TechnicalDetails.map(item => item || ""))
+    
+    // soft skills..
+    const [softSkill, setSoftSkill] = useState(softSkillsDetails.map(item => item || ""));
+
+    // addtional skills..
+    const [additional, setAdditional] = useState(AdditionalSkills.map(item => item || ""))
+    
+    // language settings...
+    const [newLang, setNewLang] = useState(LanguageData.map(lang => lang || ""));
+
+    // certification
+    const [certificate, setCertificate] = useState(CertificateData.map(cert => cert || ""))
 
     return(
         <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
@@ -93,11 +117,11 @@ const [personal, setPersonal] = useState(PersonalDetails.map(item => item || "")
                  />    
                 {/* action area... */}
                     <AddOrRemove 
-                    addBoxes={helper.addSocialMedia}
-                    removeBoxes={helper.removeSocialMedia}
+                    addBoxes={helper.handleAddItem}
+                    removeBoxes={helper.handleRemoveItem}
                     array={SocialMedia}
                     setArray={setSocialMedia}
-                    obj={socialSites}
+                    obj={data.demoData.socialSites}
                 />
              </div>
 
@@ -130,22 +154,139 @@ const [personal, setPersonal] = useState(PersonalDetails.map(item => item || "")
                         />
                       {/* action area... */}
                       <AddOrRemove 
-                        addBoxes={helper.addEducation} 
-                        removeBoxes={helper.removeEducation} 
+                        addBoxes={helper.handleAddItem} 
+                        removeBoxes={helper.handleRemoveItem} 
                         array={Education}
                         setArray={setEducation}
-                        obj={edDetails}
+                        obj={data.demoData.edDetails}
                     />
                 </div>
 
                 {/* fourth part... [work experience] */}
+                <div>
+                <ResumeWork
+                    works={Workdetail}
+                    company={company}
+                    setCompany={setCompany}
+                    experience={workExp}
+                    setExperience={setWorkExp}
+                    summary={workSummary}
+                    setSummary={setWorkSummary}
+                    leaveDate={workLeave}
+                    setLeaveDate={setWorkLeave}
+                    joinDate={workJoin}
+                    setJoinDate={setWorkJoin}
+                    role={workRole}
+                    setRole={setWorkRole}
+                    handleWork={helper.handleItem}  
+                 />
+                 {/* action area... */}
+                    <AddOrRemove 
+                        addBoxes={helper.handleAddItem} 
+                        removeBoxes={helper.handleRemoveItem} 
+                        array={Workdetail}
+                        setArray={setWorkDetail}
+                        obj={data.demoData.workdetail}
+                    />
+                </div>
 
-                <ResumeWork />
+
+         {/* project details... */}
+            <div>
+                <ResumeProject
+                    projects={Project}
+                    title={projectTitle}
+                    setTitle={setProjectTitle}
+                    link={projectLink}
+                    setLink={setProjectLink}
+                    summary={projectSummary}
+                    setSummary={setProjectSummary}
+                    experience={projectExperience}
+                    setExperience={setProjectExperience}
+                    startDate={projectStart}
+                    setStartDate={setProjectStart}
+                    endDate={projectEnd}
+                    setEndDate={setProjectEnd}
+                    handleProject={helper.handleItem}
+                />
+                {/* action area... */}
+                <AddOrRemove 
+                    addBoxes={helper.handleAddItem} 
+                    removeBoxes={helper.handleRemoveItem} 
+                    array={Project}
+                    setArray={setProject}
+                    obj={data.demoData.projects}
+                /> 
+        </div>
+
+        {/* technical details... */}
+                <ResumeTech 
+                    TechnicalDetails={TechnicalDetails}
+                    setTechnicalDetails={setTechnicalDetails}
+                    techSkill={techSkill}
+                    setTechSkill={setTechSkill}
+                    addItem={helper.handleAddItem}
+                    removeItem={helper.handleRemoveItem}
+                    handleTech={helper.handleItem}
+                />
+
+                {/* soft skills details... */}
+                <ResumeSoft 
+                    SoftSkills={softSkillsDetails}
+                    setSoftSkills={setSoftSkillDetails}
+                    skill={softSkill}
+                    setSkill={setSoftSkill}
+                    handleSoft={helper.handleItem}
+                    addItem={helper.handleAddItem}
+                    removeItem={helper.handleRemoveItem}
+                
+                />
+
+                {/* additional skills... */}
+                <ResumeAdditional 
+                    AdditionalSkills={AdditionalSkills}
+                    setAdditionalSkills={setAdditionalSkills}
+                    skill= {additional}
+                    setSkill={setAdditional}
+                    handleAddition={helper.handleItem}
+                    addItem={helper.handleAddItem}
+                    removeItem={helper.handleRemoveItem}
+                />
+
+                {/* languages... */}
+                <ResumeLanguage 
+                    LanguageData={LanguageData}
+                    setLanguageData={setLanguageData}
+                    language={newLang}
+                    setLanguage={setNewLang}
+                    handleLanguage={helper.handleItem}
+                    addItem={helper.handleAddItem}
+                    removeItem={helper.handleRemoveItem}
+                />
+
+                {/* certification area... */}
+                <div className="mt-3">
+                    <h5 className="text-lg mb-3">Certification</h5>
+                    <div className="cert">
+                    {
+                        CertificateData && CertificateData.map((item, index) => (
+                            <input 
+                            type="text"
+                            placeholder="Add Certificates"
+                            className="mb-4 w-full px-3 py-1 border border-cyan-300 focus:outline-none"
+                            value={certificate[index]}
+                            onChange={(e)=> helper.handleItem(certificate, setCertificate, index, e.target.value)}
+                            />
+                        ))
+                    }
+                    </div>
+                </div>
+
             </div>
             </div>
 
             {/* right side  */}
-            <ResumeContent personal={personal}/>
+            <ResumeContent personal={personal} socialSite={socialSite} socialIcon={socialIcon}/>
         </div>
     )
 }
