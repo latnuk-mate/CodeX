@@ -3,15 +3,26 @@ import express from "express";
 import cors from 'cors'
 import cookieParser from "cookie-parser";
 import connection from "./config/db.js";
-import routeForUser from "./route/user.js";
+import { authRouter } from "./controller/auth.controller.js";
+import { userRouter } from "./controller/user.controller.js";
+
 // parsing the env file...
 configDotenv();
 
 const PORT = process.env.PORT;
 
+export const secretKey = `${process.env.HASHKEY}`;
 
 // initialize the express...
 const app = express();
+app.use(cookieParser())
+
+// for data parser;
+app.use(express.urlencoded({extended: false}))
+app.use(express.json());
+
+
+
 
 // to handle cors errors...
 app.use(cors({
@@ -19,23 +30,17 @@ app.use(cors({
     credentials : true
 }));
 
-// for data parser;
-app.use(express.json());
-app.use(cookieParser())
 
 
 // setting up db connection...
 connection();
 
 
-app.get('/data', (req,res)=>{
-    res.json({data : "Hello, world"})
-});
+
 
 // custom Routes...
-app.use('/', routeForUser);
-
-
+app.use('/', authRouter);
+app.use('/user', userRouter)
 
 
 

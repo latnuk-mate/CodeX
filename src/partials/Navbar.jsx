@@ -1,8 +1,13 @@
-
-import React from 'react'
+import React, { useContext } from 'react'
 import DropDown from './DropDown';
+import { ContextUser } from '../UserContext';
+import { Link } from 'react-router-dom';
+import { UserCircleIcon } from '@heroicons/react/16/solid';
+import helper from "../helper/helper";
 
 function Navbar({showAndHide, pointer}) {
+
+   const {user, setUser} = useContext(ContextUser);
 
   return (
   <>
@@ -26,9 +31,27 @@ function Navbar({showAndHide, pointer}) {
 
      {/* user flow */}
      <div className="flex pr-0 lg:pr-14 gap-4 items-center">
-        <a href="/user/login" className='primary-btn px-5 py-2 text-lg'>Sign In</a>
-        <a href="/user/register" className='secondary-btn px-5 py-2 text-lg hidden md:block'>Register</a>
-     </div>
+      {
+         user ?(
+            <>
+               <Link to={"/dashboard/profile"} className="px-4 py-1 gap-1 flex items-center justify-center  bg-zinc-50/20 w-auto rounded-[100px]">
+                  <UserCircleIcon className='w-8 h-8'/>
+                  <span className='text-lg'>Dashboard</span>
+               </Link>
+               <button onClick={() => helper.logOut(setUser)} className='primary-btn px-5 py-2 hidden lg:block'>Sign Out</button>
+            
+            </>
+         )
+         :
+         (
+
+         <>
+        <Link to={"/user/login"} className='primary-btn px-5 py-2 text-lg'>Sign In</Link>
+        <Link to={"/user/register" }className='secondary-btn px-5 py-2 text-lg hidden md:block'>Register</Link>
+          </> 
+         )}
+    
+    </div>
 
      {/* hamburger */}
      <div className="hamburger h-8 w-8 bg-amber-500 rounded-md flex lg:hidden items-center cursor-pointer" 

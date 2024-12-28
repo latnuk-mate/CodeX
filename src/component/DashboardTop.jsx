@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function Topbar({showAndHide, pointer, logOut, element, clickToSee}){
 
-    const {user} = useContext(ContextUser);
+    const {user, setUser} = useContext(ContextUser);
 
     return(
         <div className="lg:-ml-12">
@@ -40,7 +40,7 @@ export default function Topbar({showAndHide, pointer, logOut, element, clickToSe
             {user && (
                 <>
                 <div className="flex items-center justify-center w-8 h-8 rounded-full secondary-bg">
-                    {user.name[0]}
+                    {user?.name[0]}
                  </div>
                 <h5 className='capitalize'>{user.name}</h5>
                 </>
@@ -50,7 +50,7 @@ export default function Topbar({showAndHide, pointer, logOut, element, clickToSe
             <div
             style={{display: 'none'}}
             className="absolute p-2 rounded-sm -bottom-14 primary-bg w-full left-0 flex justify-center" ref={pointer}>
-              <h5 onClick={logOut} className='capitalize text-lg mb-2'>Sign out</h5>
+              <h5 onClick={() => logOut(setUser)} className='capitalize text-lg mb-2'>Sign out</h5>
             </div>
 
           </div>

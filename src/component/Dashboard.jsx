@@ -3,16 +3,14 @@ import Sidebar from './Sidebar';
 import DashboardProfile from './DashboardProfile';
 import DashboardRefer from './DashboardRefer';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import { useContext, useRef } from 'react';
-import { ContextUser } from '../UserContext';
+import { useRef } from 'react';
 import DashboardCert from './DashboardCert';
 import Topbar from './DashboardTop';
 import Hackathon from './DashboardHack';
 import Resume from './DashboardResume';
+import helper from '../helper/helper';
 
 function Dashboard({showAndHide, pointer}) {
-  const {setUser} = useContext(ContextUser);
   const  {query} = useParams();
 
   const element = useRef();
@@ -71,25 +69,17 @@ function Dashboard({showAndHide, pointer}) {
   
   }
 
-    function logOut(){
-            axios.get('/logout')
-          .then(res => {
-            console.log(res.data);
-            setUser(null)
-          })
-      .catch(err => console.error(err.code));
-    }
 
 
 
   return (
     <div className='dashboard lg:grid grid-cols-4'>
         {/* sidebar */}
-        <Sidebar query={query} changeBg={setBackground} logOut={logOut} pointer={element} clickToSee={showSideBar}/>
+        <Sidebar query={query} changeBg={setBackground} logOut={helper.logOut} pointer={element} clickToSee={showSideBar}/>
 
       {/* main content */}
        <main className='col-span-3'>
-        {(query !== 'profile') && <Topbar showAndHide={showAndHide} pointer={pointer} logOut={logOut} clickToSee={showSideBar} element={element} />
+        {(query !== 'profile') && <Topbar showAndHide={showAndHide} pointer={pointer} logOut={helper.logOut} clickToSee={showSideBar} element={element} />
         
         }
             {

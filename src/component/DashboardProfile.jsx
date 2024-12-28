@@ -30,7 +30,9 @@ function DashboardProfile({changeBg, clickToSee, element}) {
           </div>
         {/* course filter  */}
         <div className="nav-filter flex justify-center xl:justify-start lg:mt-10 items-center gap-20">
-          <h5 className='hidden lg:block text-2xl highlightedText'>My Courses</h5>
+          <h5 className='hidden lg:flex items-center gap-2 text-2xl highlightedText'>
+            <Link to={'/'} className='text-lg underline'>Home</Link>
+            My Courses</h5>
           <ul className='flex items-center navigation' ref={ul}>
           <li
             data-filter="All"

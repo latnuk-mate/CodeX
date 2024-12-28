@@ -1,7 +1,7 @@
 import { ArrowDownCircleIcon, BookmarkIcon} from "@heroicons/react/16/solid";
-import {useState } from "react";
+import { useState } from "react";
 import AddOrRemove from "../partials/Action";
-import helper from "./helper/helper";
+import helper from "../helper/helper";
 import details from '../assets/data.json';
 import data from '../assets/demo.json'
 import ResumeEducation from "../partials/ResumeEducation";
@@ -19,6 +19,9 @@ export default function Resume(){
     // multiple social inputs to create...
     // three different inputs...
     const PersonalDetails = details.data.personal;
+    const CertificateData = details.data.certificate;
+
+
     const [SocialMedia, setSocialMedia] = useState(details.data.social || []);
     const [Education, setEducation] = useState(details.data.education || []);
     const [Workdetail, setWorkDetail] = useState(details.data.work || []);
@@ -27,7 +30,7 @@ export default function Resume(){
     const [softSkillsDetails, setSoftSkillDetails] = useState(details.data.softSkill || []);
     const [AdditionalSkills , setAdditionalSkills] = useState(details.data.additionalSkills || [])
     const [LanguageData , setLanguageData] = useState(details.data.languages || [])
-    const CertificateData = details.data.certificate;
+    
     
     // for personal details area...
     const [personal, setPersonal] = useState(PersonalDetails.map(item => item || ""))

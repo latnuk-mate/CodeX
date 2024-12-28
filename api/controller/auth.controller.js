@@ -2,11 +2,20 @@ import {Router} from 'express'
 import bcrypt from 'bcrypt'
 import User from '../model/userModel.js';
 import jwt from 'jsonwebtoken'
+import { secretKey } from '../app.js';
 
 const router = Router();
 
 const salt = bcrypt.genSaltSync(10);
-const secret = process.env.HASHKEY;
+
+
+const cookieOptions = {
+    httpOnly: true,           
+    sameSite: 'None', 
+    secure: true      
+};
+
+
 
 
 router.post('/register', async(req,res)=>{
@@ -35,45 +44,43 @@ router.post('/register', async(req,res)=>{
 router.post('/login', async(req,res)=>{
     const {email , password} = req.body;
 
-   
     try {
         const user = await User.findOne({userEmail:email});
         const userDoc = {
             id:user.id,
             name:user.userName,
-            email:user.userEmail,
-            phone:user.userPhone
+            email:user.userEmail
         }
 
         if(user){
             if(bcrypt.compareSync(`${password}` , user.userPass)){
-                // res.json(user)
-                jwt.sign(userDoc, `${secret}`, {expiresIn: '1hr'} ,(err, data)=>{
+                jwt.sign(userDoc, secretKey, (err, data)=>{
                     if(err){
                         throw err;
                     }
                     // set cookie for furthur refercence...
-                    res.cookie('token', data, {
-                        httpOnly: true,
-                        maxAge: 3600000
-                    }).json(userDoc);
-                })
+                    res.cookie('token', data, cookieOptions);     
+                    res.json(userDoc);
+                });
+                 
             }else{
                 res.json('password not matched')
             }
+        }else{
+            res.status(404).json({ message: 'User not found' })
         }
     } catch (error) {
-        console.error(error.code)
+        console.error(error)
     }
 });
 
+
+
+
 router.get('/logout', (req,res)=>{
-    res.cookie('token', "");
+    res.clearCookie('token', cookieOptions);
     res.json("succesfully logged out.")
 })
 
-const routeForUser = router;
 
-export default routeForUser;
-
-
+export const authRouter = router;
